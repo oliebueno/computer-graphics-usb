@@ -45,15 +45,28 @@ class App {
 
     // Create shader material
     this.geometry = new THREE.PlaneGeometry(2, 2);
-    this.material = new THREE.ShaderMaterial({
+    this.material = new THREE.RawShaderMaterial({
       vertexShader,
       fragmentShader,
       uniforms: {
+        projectionMatrix: { value: this.camera.projectionMatrix },
+        viewMatrix: { value: this.camera.matrixWorldInverse },
+        modelMatrix: { value: new THREE.Matrix4() },
+        // custom uniforms
         u_time: { value: 0.0 },
         u_resolution: { value: resolution },
       },
       glslVersion: THREE.GLSL3,
     });
+    // Default way you'll find in TONS of tutorials
+    // this.material = new THREE.ShaderMaterial({
+    //   vertexShader,
+    //   fragmentShader,
+    //   uniforms: {
+    //     time: { value: 0.0 },
+    //     resolution: { value: resolution },
+    //   },
+    // });
 
     // Create mesh
     this.mesh = new THREE.Mesh(this.geometry, this.material);

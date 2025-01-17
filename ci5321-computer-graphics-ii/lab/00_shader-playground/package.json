@@ -1,7 +1,7 @@
 {
-  "name": "99-shader-playground",
+  "name": "shader-playground",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -19,7 +19,7 @@
   },
   "main": "index.js",
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "author": "Jorge Palacios",
+  "license": "Apache-2.0",
+  "description": "Starting point for shader development"
 }
